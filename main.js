@@ -91,16 +91,15 @@ function creaContatoreAutomatico(intervallo) {
     Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop. Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.
 
     */
-    function eseguiEferma(messaggio, tempoAvvio, tempoStop) {
-        let tempoTrascorso = 0;
-      
-        const intervalId = setInterval(() => {
+    function eseguiEferma(messaggio, intervallo, tempoStop) {
+        intervalId=setInterval(() => {
           console.log(messaggio);
-          tempoTrascorso += tempoAvvio;
-      
-          if (tempoTrascorso >= tempoStop) {
-            clearInterval(intervalId);
-            console.log("Intervallo fermato!");
-          }
-        }, tempoAvvio);
-      }
+        }, intervallo);
+        setTimeout(() => {
+          clearInterval(intervalId);
+          console.log("Intervallo fermato!");
+        }, tempoStop);
+
+    }
+    eseguiEferma("Ciao!", 1000, 5000);
+        
