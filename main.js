@@ -53,53 +53,47 @@ timer3s();
     Nota: Questa funzione creerà un loop infinito. Interrompilo manualmente o usa clearInterval() in un altro script.
 */
 function stampaOgniSecondo(messaggio) {
-    const intervalId = setInterval(() => {
-      console.log(messaggio);
-    }, 1000);
-  
-    // Ferma l'intervallo dopo 5 secondi
-    setTimeout(() => {
-      clearInterval(intervalId);
-      console.log("Intervallo fermato!");
-    }, 5000);
-  }
-  
-  stampaOgniSecondo("Ciao!");
+  const intervalId = setInterval(() => {
+    console.log(messaggio);
+  }, 1000);
 
-  /*Crea un contatore automatico con setInterval
+  // Ferma l'intervallo dopo 5 secondi
+  setTimeout(() => {
+    clearInterval(intervalId);
+    console.log("Intervallo fermato!");
+  }, 5000);
+}
+
+stampaOgniSecondo("Ciao!");
+
+/*Crea un contatore automatico con setInterval
 
     Definisci una funzione creaContatoreAutomatico che accetta
      un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
  */
 function creaContatoreAutomatico(intervallo) {
-    let contatore = 0;
-  
-    const intervalId = setInterval(() => {
+  let contatore = 0;
+  return () => {
+    setInterval(() => {
       contatore++;
       console.log(contatore);
     }, intervallo);
-  
-    return function () {
-      clearInterval(intervalId);
-      console.log("Contatore fermato!");
-    };
-  }
-  const contaOgniSecondo = creaContatoreAutomatico(1000);
-  contaOgniSecondo();
-  /* Crea una funzione che ferma un timer dopo un certo tempo
+  };
+}
+const contaOgniSecondo = creaContatoreAutomatico(1000);
+contaOgniSecondo();
+/* Crea una funzione che ferma un timer dopo un certo tempo
 
     Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop. Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.
 
     */
-    function eseguiEferma(messaggio, intervallo, tempoStop) {
-        intervalId=setInterval(() => {
-          console.log(messaggio);
-        }, intervallo);
-        setTimeout(() => {
-          clearInterval(intervalId);
-          console.log("Intervallo fermato!");
-        }, tempoStop);
-
-    }
-    eseguiEferma("Ciao!", 1000, 5000);
-        
+function eseguiEferma(messaggio, intervallo, tempoStop) {
+  intervalId = setInterval(() => {
+    console.log(messaggio);
+  }, intervallo);
+  setTimeout(() => {
+    clearInterval(intervalId);
+    console.log("Intervallo fermato!");
+  }, tempoStop);
+}
+eseguiEferma("Ciao!", 1000, 5000);
