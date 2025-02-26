@@ -37,13 +37,15 @@ function eseguiOperazione(a, b, operatore) {
     nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".
  */
 
-function creaTimer(ms) {
+function creaTimer(tempo) {
   return function () {
     setTimeout(() => {
       console.log("Tempo scaduto!");
-    }, ms);
+    }, tempo);
   };
 }
+const timer3s = creaTimer(3000);
+timer3s();
 /* Crea una funzione stampaOgniSecondo con setInterval.
 
     Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
