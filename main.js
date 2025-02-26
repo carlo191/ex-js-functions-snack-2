@@ -20,9 +20,7 @@ const somma = (a, b) => a + b;
     Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.
  */
 
-function quadrato(num) {
-  return num * num;
-}
+const quadrato = (a) => a * a;
 
 /*Crea una funzione eseguiOperazione
 
